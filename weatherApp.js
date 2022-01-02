@@ -1,6 +1,7 @@
 
 const api = require('./api.json');
 const https = require('https');
+const http = require('http');
 //const zip = 90210;
 
 function printWeather(weather) {
@@ -50,7 +51,7 @@ function get(query) {
             });
         }else {
             //Status error code
-            const statusErrorCode = new Error (`There has been an error getting the message for "{query}". (${http.STATUS_CODES[response.statusCode]})`);
+            const statusErrorCode = new Error (`There has been an error getting the message for "${query}". (${http.STATUS_CODES[response.statusCode]})`);
             printError(statusErrorCode);
         }
     })
